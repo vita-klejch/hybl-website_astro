@@ -1,0 +1,84 @@
+@use "components/carousel";
+@use "components/nav";
+@use "components/footer";
+@use "components/portfolioCard";
+@use "components/buttonLink";
+@use "components/contactSection";
+@use "components/referenceSection";
+@use "components/gallery";
+
+@use "assets/variables" as *;
+
+@use "mixins/headlineSetup" as *;
+//test5
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: $main-font-size;
+  font-family: $main-font;
+  color: $main-text-color;
+  background-color: $main-bg-color;
+}
+
+.main-container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+h1 {
+  @include headline-setup;
+
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+}
+
+h2 {
+  @include headline-setup;
+
+  margin-bottom: 0.85rem;
+  font-size: 1.3rem;
+}
+
+section {
+  margin-bottom: 7rem;
+}
+
+.pt-3 {
+  padding-top: 3rem;
+}
+.pt-6 {
+  padding-top: 6rem;
+}
+
+.my-10 {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+.text-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p {
+  max-width: 600px;
+  margin-bottom: 2rem;
+  line-height: 1.5rem;
+}
+a {
+  color: inherit;
+}
+.js-portfolio,
+.js-contact,
+.js-reference {
+  scroll-margin-top: 7rem;
+}

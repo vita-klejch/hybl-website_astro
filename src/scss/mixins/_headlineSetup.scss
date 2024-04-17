@@ -1,0 +1,9 @@
+@use "../assets/variables" as *;
+
+@mixin headline-setup {
+  border-left: $primary-border;
+  text-transform: uppercase;
+  line-height: 100%;
+  letter-spacing: 3px;
+  padding-left: 0.7rem;
+}

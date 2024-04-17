@@ -1,0 +1,62 @@
+@use "../assets/breakpoints" as bp;
+@use "../assets/variables" as *;
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 1rem;
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__table {
+    display: flex;
+    gap: 2rem;
+  }
+  &__table-labels {
+    font-weight: 700;
+    line-height: 2rem;
+    margin-top: -6px;
+  }
+  &__table-info {
+    line-height: 2rem;
+    margin-top: -6px;
+  }
+  &__img {
+    display: none;
+    @include bp.desktop {
+      display: block;
+    }
+
+    & img {
+      width: 100%;
+    }
+  }
+}
+
+.form {
+  max-width: 600px;
+  margin: 2rem auto;
+
+  &__label {
+    font-weight: 700;
+  }
+  &__input,
+  &__input--msg {
+    font-family: arial, sans-serif;
+    font-size: 1em;
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-top: 5px;
+    background-color: $form-input-background-color;
+    border: 1px solid $dark-grey;
+    padding: 5px;
+    font-family: var(--font);
+  }
+  &__input--msg {
+    height: 135px;
+  }
+}

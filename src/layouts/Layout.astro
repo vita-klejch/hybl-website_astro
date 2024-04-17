@@ -1,51 +1,55 @@
 ---
+import Footer from "../components/Footer.astro";
+import Head from "../components/Head.astro";
+import Nav from "../components/Nav.astro";
+import "../css/main.css";
 interface Props {
-	title: string;
+  headerTitle: string;
+  bodyClass?: string;
+  redirNavigation?: boolean;
 }
 
-const { title } = Astro.props;
+const { headerTitle, bodyClass = "", redirNavigation = false } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="cs">
+  <Head headerTitle={headerTitle} />
+  <body class={bodyClass}>
+    <Nav {redirNavigation} />
+    <slot />
+    <Footer text="some text for footer" />
+    <style is:global>
+      /* section {
+        margin-bottom: 5rem;
+      }
+
+      .pt-3 {
+        padding-top: 3rem;
+      }
+      .pt-6 {
+        padding-top: 6rem;
+      }
+
+      .text-container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      p {
+        max-width: 600px;
+        margin-bottom: 1rem;
+        line-height: 1.5rem;
+      }
+      a {
+        color: inherit;
+      }
+      .js-portfolio,
+      .js-contact,
+      .js-reference {
+        scroll-margin-top: 90px;
+      } */
+    </style>
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>

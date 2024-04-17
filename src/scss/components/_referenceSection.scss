@@ -1,0 +1,62 @@
+@use "../mixins/shadow" as *;
+
+.reference {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 200px);
+  justify-content: center;
+  gap: 1rem 2rem;
+  margin-bottom: 1rem;
+
+  &__item {
+    max-height: 200px;
+    display: flex;
+    justify-content: center;
+    // overflow: visible;
+    filter: grayscale(1);
+  }
+
+  &__item:hover {
+    filter: grayscale(0);
+  }
+
+  &__logo {
+    width: auto;
+    max-width: 220px;
+    object-fit: contain;
+    // overflow: visible;
+  }
+
+  &__card-group {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__card {
+    @include shadow;
+    width: 100%;
+    max-width: 500px;
+    padding: 1.5rem;
+  }
+
+  &__card-header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  &__card-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  &__card-title {
+    font-weight: 700;
+  }
+
+  &__card-text {
+    font-style: italic;
+    margin-top: 1rem;
+  }
+}

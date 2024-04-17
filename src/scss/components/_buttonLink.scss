@@ -1,0 +1,42 @@
+@use "../assets/variables" as *;
+
+.btn {
+  font-family: $button-font;
+  padding: 0.5rem 1rem;
+  color: $button-text-color;
+  border: $button-border;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  background: linear-gradient($button-hover-bg-color 0 0) right / var(--p, 0)
+    no-repeat;
+  transition:
+    all $button-hover-animation-speed,
+    background-position 0s;
+  margin-right: 0;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    --p: 100%;
+    background-position: left;
+    color: $button-hover-text-color;
+  }
+
+  &__icon {
+    fill: $button-icon-color;
+    width: 1rem;
+    height: 1rem;
+    transition: all $button-hover-animation-speed;
+    transform: translateY(2px);
+  }
+
+  &__icon--rotate {
+    transform: translateY(2px) rotate(180deg);
+  }
+  &:hover &__icon {
+    fill: $button-hover-icon-color;
+  }
+}

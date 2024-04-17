@@ -1,0 +1,70 @@
+@use "../assets/breakpoints" as bp;
+@use "../assets/variables" as *;
+
+@use "../mixins/shadow" as *;
+
+.card {
+  @include shadow;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+
+  @include bp.tablet {
+    flex-direction: row;
+    max-width: 480px;
+  }
+  @include bp.desktop {
+    flex-direction: column;
+    max-width: 320px;
+    flex: 1 1;
+  }
+
+  &__text-container {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    @include bp.tablet {
+      width: 60%;
+    }
+    @include bp.desktop {
+      width: auto;
+      flex-grow: 1;
+    }
+  }
+  &__img-container {
+    overflow: hidden;
+    display: flex;
+    height: 200px;
+    @include bp.tablet {
+      height: auto;
+      width: 40%;
+    }
+    @include bp.desktop {
+      height: 200px;
+      width: auto;
+    }
+  }
+  &__img {
+    width: 100%;
+
+    transition: transform $card-image-hover-animation-speed;
+    object-fit: cover;
+  }
+  &__img:hover {
+    transform: scale(1.15);
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    @include bp.desktop {
+      flex-direction: row;
+    }
+  }
+}

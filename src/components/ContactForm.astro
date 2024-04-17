@@ -1,0 +1,60 @@
+---
+const formTarget = import.meta.env.FORM_TARGET;
+const formRedirect = import.meta.env.FORM_REDIRECT;
+---
+
+<form class="form" action={formTarget} method="POST">
+  <div class="form__input-container">
+    <label class="form__label" for="form-name">Jméno</label><br />
+    <input
+      class="form__input"
+      id="form-name"
+      type="text"
+      name="jméno"
+      required
+      placeholder="Vaše jméno"
+    />
+  </div>
+  <div class="form__input-container">
+    <label class="form__label" for="form-email">E-mail</label><br />
+    <input
+      class="form__input"
+      id="form-email"
+      type="text"
+      name="e-mail"
+      required
+      placeholder="Váš e-mail"
+    />
+  </div>
+  <div class="form__input-container">
+    <label class="form__label" for="form-msg">Zpráva</label><br />
+    <textarea
+      class="form__input form__input--msg"
+      id="form-msg"
+      required
+      name="zpráva"
+      cols="30"
+      rows="10"
+      placeholder="Vaše zpráva"></textarea>
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_next" value={formRedirect} />
+  </div>
+  <div>
+    <div class="align-center">
+      <button class="btn" type="submit">
+        Odeslat
+        <svg
+          width="44"
+          height="44"
+          viewBox="0 0 44 44"
+          xmlns="http://www.w3.org/2000/svg"
+          class="btn__icon"
+        >
+          <path
+            d="M22.0003 0.666748L18.2403 4.42675L33.1203 19.3334H0.666992V24.6667H33.1203L18.2403 39.5734L22.0003 43.3334L43.3337 22.0001L22.0003 0.666748Z"
+            fill="redXX"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</form>

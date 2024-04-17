@@ -1,0 +1,35 @@
+@use "../assets/breakpoints" as bp;
+
+/* GALLERY - SECOND VERSION - two columns next to each other */
+.gallery {
+  $gallery-gap: 1rem;
+
+  &__item {
+    overflow: hidden;
+    display: block;
+  }
+
+  &__img {
+    object-fit: contain;
+    width: 100%;
+    min-height: 200px;
+    vertical-align: middle;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $gallery-gap;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    @include bp.custom-media(650px) {
+      flex-direction: row;
+    }
+  }
+  &__column {
+    display: flex;
+    gap: $gallery-gap;
+    flex-direction: column;
+    // justify-content: space-between;
+  }
+}

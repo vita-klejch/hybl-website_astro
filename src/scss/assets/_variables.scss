@@ -1,0 +1,58 @@
+/* COLORS */
+$primary-color: #d20f0f;
+$light-grey: #e0e0e0;
+$normal-grey: #878787;
+$dark-grey: #383838;
+
+$black-color: #000000;
+$white-color: #ffffff;
+
+/* AINMATION TIME */
+$time-slow: 0.5s;
+$time-fast: 0.25s;
+
+/* OTHER */
+$primary-border: 3px solid $primary-color;
+
+/* BREAKPOINTS - tablet, mobile */
+$bp-tablet: 768px;
+$bp-mobile: 576px;
+
+/* MAIN SETUP */
+$main-font: "Oxygen", sans-serif;
+$main-font-size: 16px;
+$main-text-color: $black-color;
+$main-bg-color: $white-color;
+
+/* NAV */
+$nav-opacity: 0.9;
+$nav-link-animation-speed: $time-fast;
+$nav-item-hover-color: $primary-color;
+
+$nav-burgermenu-animation-speed: $time-slow;
+$nav-burgermenu-bg-color: $main-bg-color;
+$nav-burgermenu-hover-color: $primary-color;
+$nav-burgermenu-divider-color: $normal-grey;
+
+/* BUTTON LINK */
+$button-font: $main-font;
+$button-text-color: $primary-color;
+$button-icon-color: $primary-color;
+$button-border: $primary-border;
+
+$button-hover-bg-color: $primary-color;
+$button-hover-text-color: $white-color;
+$button-hover-icon-color: $white-color;
+$button-hover-animation-speed: $time-slow;
+
+/* FOOTER */
+$footer-background-color: $dark-grey;
+$footer-text-color: $main-bg-color;
+
+/* CONTACT SECTION */
+$form-input-background-color: $light-grey;
+$form-input-text-color: $dark-grey;
+$form-input-font: $main-font;
+
+/* CARD */
+$card-image-hover-animation-speed: $time-slow;

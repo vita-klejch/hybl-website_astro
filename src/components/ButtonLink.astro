@@ -1,0 +1,24 @@
+---
+interface Props {
+  link: string;
+  title: string;
+  arrowToLeft?: boolean;
+}
+
+const { link, title, arrowToLeft = false } = Astro.props;
+---
+
+<a class="btn" href={link}>
+  {title}
+  <svg
+    width="44"
+    height="44"
+    viewBox="0 0 44 44"
+    xmlns="http://www.w3.org/2000/svg"
+    class=`btn__icon${arrowToLeft ? ' btn__icon--rotate':''}`
+  >
+    <path
+      d="M22.0003 0.666748L18.2403 4.42675L33.1203 19.3334H0.666992V24.6667H33.1203L18.2403 39.5734L22.0003 43.3334L43.3337 22.0001L22.0003 0.666748Z"
+      fill="redXX"></path>
+  </svg>
+</a>

@@ -1,0 +1,112 @@
+@use "../mixins/shadow" as *;
+@use "../assets/breakpoints" as bp;
+@use "../assets/variables" as *;
+
+/* NAVBAR */
+.nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  height: 72px;
+
+  &__container {
+    @include shadow;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(255, 255, 255, $nav-opacity);
+    z-index: 100;
+  }
+
+  &__logo {
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform $time-fast;
+  }
+  &__burger-menu {
+    padding: 1rem;
+    cursor: pointer;
+    transform: translateX(1rem);
+    @include bp.tablet {
+      display: none;
+    }
+  }
+
+  &__burger-line {
+    background-color: black;
+    width: 2rem;
+    height: 3px;
+    transition: all $time-slow;
+  }
+  &__burger-line:nth-child(2) {
+    margin: 5px 0;
+  }
+  &--active &__burger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  &--active &__burger-line:nth-child(2) {
+    opacity: 0%;
+  }
+  &--active &__burger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  &__links-list {
+    list-style: none;
+    display: none;
+    gap: 2rem;
+    @include bp.tablet {
+      display: flex;
+    }
+  }
+
+  &__link {
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform $nav-link-animation-speed;
+    text-decoration: none;
+  }
+  &__link:hover,
+  &__logo:hover {
+    color: $nav-item-hover-color;
+    transform: translateY(3px);
+  }
+  &--active &__mobile-links {
+    clip-path: circle(132.9% at 86% 0);
+  }
+  &__mobile-links {
+    clip-path: circle(0% at 86% 0);
+    transition: clip-path $nav-burgermenu-animation-speed;
+    position: absolute;
+    @include shadow;
+    top: 100%;
+    right: 0;
+    background-color: $nav-burgermenu-bg-color;
+    width: 200px;
+    opacity: $nav-opacity;
+  }
+  &__mobile-links::before {
+    opacity: 0.2;
+    position: absolute;
+    bottom: 100%;
+    background-color: $nav-burgermenu-bg-color;
+    width: 200px;
+    height: 10px;
+    content: "";
+  }
+  &__mobile-link {
+    padding: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all $nav-link-animation-speed;
+    border-bottom: 1px solid $nav-burgermenu-divider-color;
+  }
+  &__mobile-link:hover {
+    transform: translateX(3px);
+    color: $nav-burgermenu-hover-color;
+  }
+}

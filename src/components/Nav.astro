@@ -1,0 +1,113 @@
+---
+interface Props {
+  redirNavigation?: boolean;
+}
+// const testBoolean = false;
+// props redirNavigation sets correct type of navigation
+//  - navbar links are different for index page and other pages
+const { redirNavigation = false } = Astro.props;
+// console.log("redir MSG from NAV:", redirNavigation);
+---
+
+<div class="nav__container">
+  <nav class="nav main-container">
+    {
+      redirNavigation ? (
+        <div class="nav__mobile-links">
+          <div class="nav__mobile-link">
+            <a class="nav__link" href="index.html?redir=portfolio">
+              Portfolio
+            </a>
+          </div>
+          <div class="nav__mobile-link">
+            <a class="nav__link" href="index.html?redir=contact">
+              Kontakt
+            </a>
+          </div>
+          <div class="nav__mobile-link">
+            <a class="nav__link" href="index.html?redir=reference">
+              Reference
+            </a>
+          </div>
+        </div>
+      ) : (
+        <div class="nav__mobile-links">
+          <div class="nav__mobile-link" data-scrollto="js-portfolio">
+            Portfolio
+          </div>
+          <div class="nav__mobile-link" data-scrollto="js-contact">
+            Kontakt
+          </div>
+          <div class="nav__mobile-link" data-scrollto="js-reference">
+            Reference
+          </div>
+        </div>
+      )
+    }
+    <div class="nav__logo" data-scrollto="js-home">
+      {
+        redirNavigation ? (
+          <a class="nav__link" href="/">
+            Michael Hýbl <br />
+            Svatební/event fotografie
+          </a>
+        ) : (
+          <>
+            Michael Hýbl <br />
+            Svatební/event fotografie
+          </>
+        )
+      }
+    </div>
+    <div class="nav__burger-menu js-burger-nav">
+      <div class="nav__burger-line"></div>
+      <div class="nav__burger-line"></div>
+      <div class="nav__burger-line"></div>
+    </div>
+    <ul class="nav__links-list">
+      {
+        redirNavigation ? (
+          <>
+            <a class="nav__link" href="/?redir=portfolio">
+              Portfolio
+            </a>
+            <a class="nav__link" href="/?redir=contact">
+              Kontakt
+            </a>
+            <a class="nav__link" href="/?redir=reference">
+              Reference
+            </a>
+          </>
+        ) : (
+          <>
+            <li class="nav__link" data-scrollto="js-portfolio">
+              Portfolio
+            </li>
+            <li class="nav__link" data-scrollto="js-contact">
+              Kontakt
+            </li>
+            <li class="nav__link" data-scrollto="js-reference">
+              Reference
+            </li>
+          </>
+        )
+      }
+    </ul>
+  </nav>
+</div>
+
+<script>
+  // BURGER MENU SETUP
+  const burgerIcon = document.querySelector(".js-burger-nav");
+  const navElement = document.querySelector(".nav");
+
+  burgerIcon?.addEventListener("click", (e) => {
+    navElement?.classList.toggle("nav--active");
+    e.stopPropagation();
+  });
+
+  // CLOSE NAV MENU when clicking somewhere on page
+  window.addEventListener("click", () => {
+    navElement?.classList.remove("nav--active");
+  });
+</script>

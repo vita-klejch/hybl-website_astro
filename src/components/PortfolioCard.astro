@@ -1,0 +1,31 @@
+---
+import ButtonLink from "./ButtonLink.astro";
+
+interface Props {
+  title: string;
+  link: string;
+  imageURL: string;
+  imageAlt: string;
+}
+
+const { title, link, imageURL, imageAlt } = Astro.props;
+---
+
+<div class="card">
+  <div class="card__text-container">
+    <div>
+      <div class="card__headline">
+        <h2>{title}</h2>
+      </div>
+      <div class="card__text">
+        <slot />
+      </div>
+    </div>
+    <div class="align-right">
+      <ButtonLink title="galerie" link={link} />
+    </div>
+  </div>
+  <div class="card__img-container">
+    <img class="card__img" src={imageURL} alt={imageAlt} />
+  </div>
+</div>

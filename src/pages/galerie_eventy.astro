@@ -1,0 +1,97 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const images = await Astro.glob("../images/galerie_eventy/*");
+
+const part1 = images.slice(0, images.length / 2);
+const part2 = images.slice(images.length / 2, images.length);
+---
+
+<Layout headerTitle="Michael Hýbl - galerie: svatby" redirNavigation>
+  <!-- <section class="main-container my-10"> -->
+  <section class="main-container pt-6">
+    <h1>Svatby</h1>
+    <p>
+      Příběh – to je základ! Nejsem fanouškem uměle vytvořených, pózovaných
+      figur, umělého osvětlení, blesků a záblesků. Pokud budu moct váš svatební
+      den zaznamenat, očekávejte ucelené vzpomínky, plné drobných detailů a
+      neopakujících se momentů, kde jako nenápadný pozorovatel v davu zachytím
+      den přesně takový jaký bude. Nevěsto, nemůžeš vidět přece všechno – já,
+      ano!
+    </p>
+
+    <p>
+      A aby výše zmíněné dávalo hlavu a patu, rád s vámi strávím celý den od
+      ranních panáků, přes průběh dne, párové momentky mimo svatebčany a to až
+      po večerní mecheche, které by mělo, podle mě, zůstat již zahaleno
+      tajemstvím svatebního dne.
+    </p>
+    <p>
+      Z celého dne očekávejte cca 400-600 upravených fotografií s dodáním, dle
+      aktuální vytíženosti, cca za 2-3 týdny. Dle domluvy můžeme udělat
+      fotografie dronem nebo případně několik fotografií na klasický analogový
+      fotoaparát.
+    </p>
+
+    <a href="index.html?redir=portfolio" class="btn">
+      <svg
+        width="44"
+        height="44"
+        viewBox="0 0 44 44"
+        xmlns="http://www.w3.org/2000/svg"
+        class="btn__icon btn__icon--rotate"
+      >
+        <path
+          d="M22.0003 0.666748L18.2403 4.42675L33.1203 19.3334H0.666992V24.6667H33.1203L18.2403 39.5734L22.0003 43.3334L43.3337 22.0001L22.0003 0.666748Z"
+          fill="redXX"></path>
+      </svg>
+       zpět</a
+    >
+    <!-- foto HERE -->
+    <div class="gallery__wrapper">
+      <div class="gallery__column">
+        {
+          part1.map((img) => (
+            <div class="gallery__item">
+              <img
+                src={img.default.src}
+                alt="img1"
+                class="gallery__img"
+                loading="lazy"
+              />
+            </div>
+          ))
+        }
+      </div>
+      <div class="gallery__column">
+        {
+          part2.map((img) => (
+            <div class="gallery__item">
+              <img
+                src={img.default.src}
+                alt="img1"
+                class="gallery__img"
+                loading="lazy"
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <a href="index.html?redir=portfolio" class="btn">
+      <svg
+        width="44"
+        height="44"
+        viewBox="0 0 44 44"
+        xmlns="http://www.w3.org/2000/svg"
+        class="btn__icon btn__icon--rotate"
+      >
+        <path
+          d="M22.0003 0.666748L18.2403 4.42675L33.1203 19.3334H0.666992V24.6667H33.1203L18.2403 39.5734L22.0003 43.3334L43.3337 22.0001L22.0003 0.666748Z"
+        ></path>
+      </svg>
+       zpět</a
+    >
+  </section>
+</Layout>

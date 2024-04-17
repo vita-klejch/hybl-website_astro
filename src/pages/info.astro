@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const baseURL = import.meta.env.INDEX_URL;
+console.log("base:");
+console.log(baseURL);
+---
+
+<Layout headerTitle="Michael Hýbl - fotogalerie" redirNavigation>
+  <section class="main-container info-section pt-6" data-js-redirect={baseURL}>
+    <h1>Děkujeme za Vaši zprávu</h1>
+    <p>Vaší zprávě se budu věnovat ihned, jakmile to bude možné.</p>
+    <p>
+      Budete přesměrování zpět na hlavní stránku. Pokud se tak nestane, tak
+      <a class="inline-link" href={baseURL}> klikněte sem.</a>
+    </p>
+  </section>
+</Layout>
+
+<script>
+  const redirectTo = document.querySelector<HTMLElement>("[data-js-redirect]");
+
+  setTimeout(() => {
+    window.location.href = redirectTo?.dataset.jsRedirect!;
+  }, 7000);
+</script>

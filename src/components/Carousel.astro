@@ -1,0 +1,43 @@
+---
+const images = await Astro.glob("../images/carousel/*");
+---
+
+<div class="carousel">
+  {
+    images.map((img, id) => (
+      <div class="carousel__slide">
+        <img
+          src={img.default.src}
+          alt={"Carousel Image - ID" + id}
+          class="carousel__img"
+        />
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  // CAROUSEL set up
+  const slides = document.querySelectorAll<HTMLElement>(".carousel__slide");
+  slides.forEach((slide, index) => {
+    slide.style.transform = `translateX(${index * 100}%)`;
+  });
+
+  let currentSlide = 0;
+  const lastSlide = slides.length - 1;
+
+  const moveCarousel = () => {
+    if (currentSlide == lastSlide) {
+      currentSlide = 0;
+    } else {
+      currentSlide++;
+    }
+
+    slides.forEach((slide, indx) => {
+      slide.style.transform = `translateX(${100 * (indx - currentSlide)}%)`;
+    });
+  };
+
+  // sets automatic carousel - change img after 4 seconds
+  setInterval(moveCarousel, 4000);
+</script>
