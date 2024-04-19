@@ -6,8 +6,9 @@ const base = import.meta.env.BASE_URL;
 // console.log(import.meta.url);
 // console.log("base", base);
 // https://astro.build/config
+// base: base,
 export default defineConfig({
   site: "https://vita-klejch.github.io/hybl-website_astro",
-  base: "hybl-website_astro",
-  // base: base,
+  // site: "https://vita-klejch.github.io",
+  // base: "hybl-website_astro",
 });
