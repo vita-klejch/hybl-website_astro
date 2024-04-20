@@ -32,6 +32,10 @@ jobs:
   build:
     env:
       BASE_URL: hybl-website_astro
+      SOCIALS_LINK: https://vita-klejch.github.io/hybl-website_astro
+      SOCIALS_IMAGE: https://vita-klejch.github.io/hybl-website_astro/img/miki_portfolio_wedding.jpg
+      FORM_REDIRECT: https://vita-klejch.github.io/hybl-website_astro/info
+      INDEX_URL: https://vita-klejch.github.io/hybl-website_astro
     name: Build
     runs-on: ubuntu-latest
     steps:
