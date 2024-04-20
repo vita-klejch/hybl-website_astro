@@ -5,6 +5,8 @@ const images = await Astro.glob("../images/galerie_eventy/*");
 
 const part1 = images.slice(0, images.length / 2);
 const part2 = images.slice(images.length / 2, images.length);
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout headerTitle="Michael Hýbl - galerie: svatby" redirNavigation>
@@ -20,7 +22,7 @@ const part2 = images.slice(images.length / 2, images.length);
       kolegy a přáteli kdykoliv připomenout.
     </p>
 
-    <a href="/hybl-website_astro/?redir=portfolio" class="btn">
+    <a href={baseUrl + "/?redir=portfolio"} class="btn">
       <svg
         width="44"
         height="44"
@@ -66,7 +68,7 @@ const part2 = images.slice(images.length / 2, images.length);
       </div>
     </div>
 
-    <a href="/hybl-website_astro/?redir=portfolio" class="btn">
+    <a href={baseUrl + "/?redir=portfolio"} class="btn">
       <svg
         width="44"
         height="44"
@@ -78,7 +80,7 @@ const part2 = images.slice(images.length / 2, images.length);
           d="M22.0003 0.666748L18.2403 4.42675L33.1203 19.3334H0.666992V24.6667H33.1203L18.2403 39.5734L22.0003 43.3334L43.3337 22.0001L22.0003 0.666748Z"
         ></path>
       </svg>
-       zpět</a
-    >
+       zpět
+    </a>
   </section>
 </Layout>

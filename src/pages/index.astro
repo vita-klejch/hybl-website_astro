@@ -11,6 +11,8 @@ import Layout from "../layouts/Layout.astro";
 // import weddingImage from "../img/miki_portolio_wedding.jpg";
 import weddingImage from "../images/miki_portfolio_wedding.jpg";
 import eventImage from "../images/miki_portfolio_event.jpg";
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout headerTitle="Michael Hýbl - svatební fotograf" bodyClass="js-home">
@@ -44,7 +46,7 @@ import eventImage from "../images/miki_portfolio_event.jpg";
         title="Svatby"
         imageURL={weddingImage.src}
         imageAlt="Fotka ze svatby"
-        link="/hybl-website_astro/galerie_svatby"
+        link={baseUrl + "/galerie_svatby"}
       >
         Zaznamenání neopakovatelných a autentických okamžiků plných radosti,
         emocí a bezprostředních reakcí na svatebních oslavách.
@@ -53,7 +55,7 @@ import eventImage from "../images/miki_portfolio_event.jpg";
         title="Eventy"
         imageURL={eventImage.src}
         imageAlt="Event fotka"
-        link="/hybl-website_astro/galerie_eventy"
+        link={baseUrl + "/galerie_eventy"}
       >
         Fotografování firemních akcí: Zachytím atmosféru, energii a propojení
         vašeho týmu.

@@ -6,7 +6,8 @@ interface Props {
 // props redirNavigation sets correct type of navigation
 //  - navbar links are different for index page and other pages
 const { redirNavigation = false } = Astro.props;
-// console.log("redir MSG from NAV:", redirNavigation);
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <div class="nav__container">
@@ -15,17 +16,17 @@ const { redirNavigation = false } = Astro.props;
       redirNavigation ? (
         <div class="nav__mobile-links">
           <div class="nav__mobile-link">
-            <a class="nav__link" href="index.html?redir=portfolio">
+            <a class="nav__link" href={baseUrl + "/?redir=portfolio"}>
               Portfolio
             </a>
           </div>
           <div class="nav__mobile-link">
-            <a class="nav__link" href="index.html?redir=contact">
+            <a class="nav__link" href={baseUrl + "/?redir=contact"}>
               Kontakt
             </a>
           </div>
           <div class="nav__mobile-link">
-            <a class="nav__link" href="index.html?redir=reference">
+            <a class="nav__link" href={baseUrl + "/?redir=reference"}>
               Reference
             </a>
           </div>
@@ -68,13 +69,13 @@ const { redirNavigation = false } = Astro.props;
       {
         redirNavigation ? (
           <>
-            <a class="nav__link" href="/hybl-website_astro/?redir=portfolio">
+            <a class="nav__link" href={baseUrl + "/?redir=portfolio"}>
               Portfolio
             </a>
-            <a class="nav__link" href="/hybl-website_astro/?redir=contact">
+            <a class="nav__link" href={baseUrl + "/?redir=contact"}>
               Kontakt
             </a>
-            <a class="nav__link" href="/hybl-website_astro/?redir=reference">
+            <a class="nav__link" href={baseUrl + "/?redir=reference"}>
               Reference
             </a>
           </>

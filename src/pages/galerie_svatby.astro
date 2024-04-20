@@ -5,6 +5,8 @@ const images = await Astro.glob("../images/galerie_svatby/*");
 
 const part1 = images.slice(0, images.length / 2);
 const part2 = images.slice(images.length / 2, images.length);
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout headerTitle="Michael Hýbl - galerie: svatby" redirNavigation>
@@ -33,7 +35,7 @@ const part2 = images.slice(images.length / 2, images.length);
       fotoaparát.
     </p>
 
-    <a href="/hybl-website_astro/?redir=portfolio" class="btn">
+    <a href={baseUrl + "/?redir=portfolio"} class="btn">
       <svg
         width="44"
         height="44"
@@ -79,7 +81,7 @@ const part2 = images.slice(images.length / 2, images.length);
       </div>
     </div>
 
-    <a href="/hybl-website_astro/?redir=portfolio" class="btn">
+    <a href={baseUrl + "/?redir=portfolio"} class="btn">
       <svg
         width="44"
         height="44"

@@ -30,6 +30,8 @@ env:
 
 jobs:
   build:
+    env:
+      BASE_URL: hybl-website_astro
     name: Build
     runs-on: ubuntu-latest
     steps:
