@@ -34,6 +34,7 @@ jobs:
       BASE_URL: hybl-website_astro
       SOCIALS_LINK: https://vita-klejch.github.io/hybl-website_astro
       SOCIALS_IMAGE: https://vita-klejch.github.io/hybl-website_astro/img/miki_portfolio_wedding.jpg
+      FORM_TARGET: https://formsubmit.co/004f5bd638f1094e44bcdc31f2be5c16
       FORM_REDIRECT: https://vita-klejch.github.io/hybl-website_astro/info
       INDEX_URL: https://vita-klejch.github.io/hybl-website_astro
     name: Build
